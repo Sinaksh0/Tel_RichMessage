@@ -31,4 +31,4 @@ def rtl() -> InlineKeyboardMarkup:
         ]
     ]
 
-    return InlineKeyboardMarkup(keyboard).to_dict()
+    return InlineKeyboardMarkup(keyboard)
