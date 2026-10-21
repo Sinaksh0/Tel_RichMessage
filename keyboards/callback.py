@@ -8,25 +8,30 @@ from src.api import ADMIN_ID
 
 async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
-    await query.answer()
-
     message_id = query.message.message_id
     chat = update.effective_chat
     person = update.effective_user
     chat_id = chat.id
+    data = query.data
+
+    await query.answer()
 
     back = [
             [InlineKeyboardButton('🔙 بازگشت', callback_data='back')]
         ]
     keyboard = InlineKeyboardMarkup(back).to_dict()
 
-    data = query.data
-
     if data == 'html':
         await send_rich_message(chat_id, HTML, 'editMessageText', keyboard, message_id)
 
     elif data == 'media':
         await send_rich_message(chat_id, MEDIA, 'editMessageText', keyboard, message_id)
+
+    elif data == 'right':
+        await send_rich_message(chat_id, context.user_data['rich_html'], 'sendRichMessage', rtl=True)
+
+    elif data == 'left':
+        await send_rich_message(chat_id, context.user_data['rich_html'], 'sendRichMessage', rtl=False)
 
     elif data == 'members':
         users = load_users()
