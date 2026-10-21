@@ -2,7 +2,7 @@ from telegram import Update
 from telegram.ext import ContextTypes
 from src.api import ADMIN_ID
 from src.text import WELCOME
-from keyboards.inlinekeyboard import main_keyboard, admin_keyboard
+from keyboards.inlinekeyboard import main_keyboard, admin_keyboard, rtl
 from database import upload_github, load_users
 from src.send_richmessage import send_rich_message
 
@@ -59,6 +59,8 @@ async def message_hadler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
     
     if text.startswith('<'):
-        await send_rich_message(update.effective_chat.id, text, 'sendRichMessage')
+        context.user_data['rich_html'] = text
+        markup = rtl()
+        await update.message.reply_text('خروجی راست چین باشد یا خیر؟\nانتخاب کنید:', reply_markup=markup)
 
     return
