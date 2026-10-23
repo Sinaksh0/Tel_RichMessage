@@ -89,13 +89,13 @@ HTML = """
 &lt;/table&gt;</code></pre>
     <table bordered striped compact>
         <tr><th>کاربرد</th><th>مقادیر داخل table</th></tr>
-        <tr><td>خط کشی دور جدول</td><td>bordered</td></tr>
-        <tr><td>راه راه شدن هر ردیف</td><td>striped</td></tr>
-        <tr><td>جدول فشرده با فاصله کمتر</td><td>compact</td></tr>
-        <tr><td>هدر جدول همیشه بالای صفحه می‌ماند.</td><td>sticky-headers</td></tr>
-        <tr><td>ردیف انتخاب شده برجسته می‌شود.</td><td>highlight</td></tr>
+        <tr><td>خط کشی دور جدول</td><td align="center">bordered</td></tr>
+        <tr><td>راه راه شدن هر ردیف</td><td align="center">striped</td></tr>
+        <tr><td>جدول فشرده با فاصله کمتر</td><td align="center">compact</td></tr>
+        <tr><td>هدر جدول همیشه بالای صفحه می‌ماند.</td><td align="center">sticky-headers</td></tr>
+        <tr><td>ردیف انتخاب شده برجسته می‌شود.</td><td align="center">highlight</td></tr>
     </table>
-    <p>همه مقادیر را میتوانید داخل&lt;table <mark>bordered striped compact highlight</mark>&gt; پشت سر هم دیگه بزارید تا اعمال شود.</p>
+    <p>همه مقادیر را میتوانید داخل\n&lt;table <mark>bordered striped compact highlight</mark>&gt;\nپشت سر هم دیگه بزارید تا اعمال شود.</p>
 
     <hr/>
     <h3>🔘 مدیریت دکمه‌ها و لینک‌ها</h3>
@@ -114,17 +114,17 @@ HTML = """
     <p>مقادیر ویژگی <strong>Type</strong> را به همراه کاربرد آن مشاهده کنید:</p>
     <table bordered striped compact>
         <tr><th>کاربرد</th><th>Type</th></tr>
-        <tr><td>🔗 باز کردن لینک خارجی یا وب‌سایت</td><td><code>url</code></td></tr>
-        <tr><td>📋 کپی کردن متن در کلیپ‌بورد</td><td><code>copy_text</code></td></tr>
+        <tr><td>🔗 باز کردن لینک خارجی یا وب‌سایت</td><td align="center"><code>url</code></td></tr>
+        <tr><td>📋 کپی کردن متن در کلیپ‌بورد</td><td align="center"><code>copy_text</code></td></tr>
     </table>
 
     <p>مقادیر رنگ‌بندی و <strong>Style</strong> دکمه‌ها:</p>
     <table bordered striped compact>
         <tr><th>توضیح ظاهر دکمه</th><th>Style</th></tr>
-        <tr><td>🔵 دکمه آبی (اطلاعات / لینک اصلی)</td><td><code>primary</code></td></tr>
-        <tr><td>🟢 دکمه سبز (تایید / موفقیت / وب‌سایت)</td><td><code>success</code></td></tr>
-        <tr><td>🔴 دکمه قرمز (هشدار / حذف / خطا)</td><td><code>danger</code></td></tr>
-        <tr><td>🔗 نمایش دکمه به‌شکل لینک (فقط callback)</td><td><code>link</code></td></tr>
+        <tr><td>🔵 دکمه آبی (اطلاعات / لینک اصلی)</td><td align="center"><code>primary</code></td></tr>
+        <tr><td>🟢 دکمه سبز (تایید / موفقیت / وب‌سایت)</td><td align="center"><code>success</code></td></tr>
+        <tr><td>🔴 دکمه قرمز (هشدار / حذف / خطا)</td><td align="center"><code>danger</code></td></tr>
+        <tr><td>🔗 نمایش دکمه به‌شکل لینک (فقط callback)</td><td align="center"><code>link</code></td></tr>
     </table>
 
     <hr/>
