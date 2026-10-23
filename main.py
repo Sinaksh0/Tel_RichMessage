@@ -1,6 +1,6 @@
 from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandler, MessageHandler, filters
 from telegram import BotCommand
-from src.api import BOT_TOKEN
+from src.api import BOT_TOKEN, WEBHOOK, PORT
 from src.messages import start, message_hadler
 from keyboards.callback import callback_handler
 
@@ -13,9 +13,10 @@ if __name__ == '__main__':
     app = ApplicationBuilder().token(BOT_TOKEN).build()
     app.post_init = post_init
 
+    
     app.add_handler(CommandHandler('start', start))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, message_hadler))
     app.add_handler(CallbackQueryHandler(callback_handler))
 
     print('Bot is running...')
-    app.run_polling()
+    app.run_webhook('0.0.0.0', PORT, "webhook", webhook_url=f"{WEBHOOK.rstrip('/')}/webhook")
