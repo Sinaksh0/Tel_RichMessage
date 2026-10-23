@@ -103,30 +103,28 @@ HTML = """
 
     <pre><code>&lt;tg-button-row&gt;
         &lt;tg-button type="url" style="success" url="https://google.com"&gt;🌐 سایت گوگل&lt;/tg-button&gt;
-        &lt;tg-button type="copy" style="default" copy="متن نمونه برای کپی"&gt;📋 کپی متن&lt;/tg-button&gt;
+        &lt;tg-button type="copy_text" text="متن نمونه برای کپی"&gt;📋 کپی متن&lt;/tg-button&gt;
     &lt;/tg-button-row&gt;</code></pre>
 
     <tg-button-row>
         <tg-button type="url" style="success" url="https://google.com">🌐 سایت گوگل</tg-button>
-        <tg-button type="copy" style="default" copy="متن نمونه برای کپی">📋 کپی متن</tg-button>
+        <tg-button type="copy_text" text="متن نمونه برای کپی">📋 کپی متن</tg-button>
     </tg-button-row>
 
     <p>مقادیر ویژگی <strong>Type</strong> را به همراه کاربرد آن مشاهده کنید:</p>
     <table bordered striped compact>
         <tr><th>کاربرد</th><th>Type</th></tr>
         <tr><td>🔗 باز کردن لینک خارجی یا وب‌سایت</td><td><code>url</code></td></tr>
-        <tr><td>📋 کپی کردن خودکار متن در کلیپ‌بورد</td><td><code>copy</code></td></tr>
+        <tr><td>📋 کپی کردن متن در کلیپ‌بورد</td><td><code>copy_text</code></td></tr>
     </table>
 
     <p>مقادیر رنگ‌بندی و <strong>Style</strong> دکمه‌ها:</p>
     <table bordered striped compact>
         <tr><th>توضیح ظاهر دکمه</th><th>Style</th></tr>
-        <tr><td>⚪️ دکمه پیش‌فرض و معمولی</td><td><code>default</code></td></tr>
         <tr><td>🔵 دکمه آبی (اطلاعات / لینک اصلی)</td><td><code>primary</code></td></tr>
         <tr><td>🟢 دکمه سبز (تایید / موفقیت / وب‌سایت)</td><td><code>success</code></td></tr>
         <tr><td>🔴 دکمه قرمز (هشدار / حذف / خطا)</td><td><code>danger</code></td></tr>
-        <tr><td>🟡 دکمه زرد (توجه / اخطار)</td><td><code>warning</code></td></tr>
-        <tr><td>🔘 دکمه خاکستری (ثانویه / غیرفعال)</td><td><code>secondary</code></td></tr>
+        <tr><td>🔗 نمایش دکمه به‌شکل لینک (فقط callback)</td><td><code>link</code></td></tr>
     </table>
 
     <hr/>
