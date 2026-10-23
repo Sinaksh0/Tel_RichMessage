@@ -78,7 +78,7 @@ HTML = """
     <h3>💻 کد</h3>
     <p>برای نمایش کد چندخطی از <code>pre</code> و <code>code</code> استفاده کن:</p>
     <pre><code>&lt;pre&gt;&lt;code class="language-python"&gt;print("سلام دنیا")&lt;/code&gt;&lt;/pre&gt;</code></pre>
-    <pre><code class="python">print("سلام دنیا")</code></pre>
+    <pre><code class="language-python">print("سلام دنیا")</code></pre>
 
     <hr/>
     <h3>📊 جدول</h3>
