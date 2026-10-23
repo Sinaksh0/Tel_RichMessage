@@ -20,7 +20,7 @@ async def send_rich_message(chat_id: int, html_content: str, method: str, reply_
     async with aiohttp.ClientSession() as session:
         async with session.post(url, json=payload) as response:
                 if not response.ok:
-                     error = response.text()
+                     error = await response.text()
                      await session.post(f'{TELEGRAM_API}/sendMessage', json={
                           "chat_id": chat_id,
                           "text": f"⚠️ Error ({response.status}): {error}"
