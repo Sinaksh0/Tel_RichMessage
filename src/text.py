@@ -78,7 +78,7 @@ HTML = """
     <h3>💻 کد</h3>
     <p>برای نمایش کد چندخطی از <code>pre</code> و <code>code</code> استفاده کن:</p>
     <pre><code>&lt;pre&gt;&lt;code class="language-python"&gt;print("سلام دنیا")&lt;/code&gt;&lt;/pre&gt;</code></pre>
-    <pre><code class="language-python">print("سلام دنیا")</code></pre>
+    <pre><code class="python">print("سلام دنیا")</code></pre>
 
     <hr/>
     <h3>📊 جدول</h3>
@@ -87,7 +87,44 @@ HTML = """
     &lt;tr&gt;&lt;th&gt;زبان&lt;/th&gt;&lt;th&gt;ویژگی&lt;/th&gt;&lt;/tr&gt;
     &lt;tr&gt;&lt;td&gt;Python&lt;/td&gt;&lt;td&gt;خوانا&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;</code></pre>
-    <table bordered striped compact><tr><th>زبان</th><th>ویژگی</th></tr><tr><td>Python</td><td>خوانا</td></tr><tr><td>HTML</td><td>ساختارمند</td></tr></table>
+    <table bordered striped compact>
+        <tr><th>کاربرد</th><th>مقادیر داخل table</th></tr>
+        <tr><td>خط کشی دور جدول</td><td>bordered</td></tr>
+        <tr><td>راه راه شدن هر ردیف</td><td>striped</td></tr>
+        <tr><td>جدول فشرده با فاصله کمتر</td><td>compact</td></tr>
+        <tr><td>هدر جدول همیشه بالای صفحه می‌ماند.</td><td>sticky-headers</td></tr>
+        <tr><td>ردیف انتخاب شده برجسته می‌شود.</td><td>highlight</td></tr>
+    </table>
+    <p>همه مقادیر را میتوانید داخل&lt;table <mark>bordered striped compact highlight</mark>&lt; پشت سر هم دیگه بزارید تا اعمال شود.</p>
+
+    <hr/>
+    <h3>دکمه ها</h3>
+    <pre><code>&lt;tg-button-row&lt;
+    &lt;tg-button type="url" style="success" url="google.com"&lt;سایت گوگل&lt;/tg-button&lt;
+    &lt;tg-button type="copy" style="default" copy="کپی متن"&lt;گپی متن&lt;/tg-button&lt;
+    &lt;/tg-button-row&lt;</code></pre>
+
+    <tg-button-row>
+        <tg-button type="url" style="success" url="google.com">سایت گوگل</tg-button>
+        <tg-button type="copy" style="default" copy="کپی متن">کپی متن</tg-button>
+    </tg-button-row>
+    
+    <p>مقادیر<strong>Type</strong> را به همراه کاربرد آن مشاهده کنید.</p>
+    <table bordered striped compact>
+        <tr><th>توضیح</th><th>Type</th></tr>
+        <tr><td>باز کردن هر لینکی</td><td>url</td></tr>
+        <tr><td>کپی کردن متن</td><td>copy</td></tr>
+    </table>
+    <p>مقادیر<strong>Style</strong> را به همراه کاربرد آن مشاهده کنید.</p>
+    <table bordered striped compact>
+        <tr><th>توضیح</th><th>Style</th></tr>
+        <tr><td>دکمه معمولی</td><td>default</td></tr>
+        <tr><td>دکمه آبی</td><td>primary</td></tr>
+        <tr><td>دکمه سبز</td><td>success</td></tr>
+        <tr><td>دکمه قرمز</td><td>danger</td></tr>
+        <tr><td>دکمه زرد</td><td>warning</td></tr>
+        <tr><td>دکمه خاکستری</td><td>secondary</td></tr>
+    </table>
 
     <hr/>
     <h3>➗ فرمول ریاضی</h3>
