@@ -26,8 +26,8 @@ def admin_keyboard() -> InlineKeyboardMarkup:
 def rtl() -> InlineKeyboardMarkup:
     keyboard = [
         [
-            InlineKeyboardButton(text="راست چین", callback_data="right"),
-            InlineKeyboardButton(text="چپ چین", callback_data="left")
+            InlineKeyboardButton(text="چپ چین", callback_data="left"),
+            InlineKeyboardButton(text="راست چین", callback_data="right")
         ]
     ]
 
