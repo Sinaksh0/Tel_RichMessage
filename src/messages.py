@@ -33,9 +33,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         keyboard = main_keyboard()
 
     if chat.type in ['group', 'supergroup']:
-        name = chat.title
+        name = chat.title if chat.title else "Super Group Topic"
     else:
-        name = user.full_name
+        name = user.full_name if user.full_name else "Super Group Topic"
 
     check_user(name, chat_id)
 
