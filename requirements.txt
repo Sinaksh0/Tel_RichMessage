@@ -1,4 +1,5 @@
 python-telegram-bot==22.8
+python-telegram-bot[webhooks]
 requests
 aiohttp
 cryptography
