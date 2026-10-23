@@ -95,7 +95,7 @@ HTML = """
         <tr><td>هدر جدول همیشه بالای صفحه می‌ماند.</td><td>sticky-headers</td></tr>
         <tr><td>ردیف انتخاب شده برجسته می‌شود.</td><td>highlight</td></tr>
     </table>
-    <p>همه مقادیر را میتوانید داخل&lt;table <mark>bordered striped compact highlight</mark>&lt; پشت سر هم دیگه بزارید تا اعمال شود.</p>
+    <p>همه مقادیر را میتوانید داخل&lt;table <mark>bordered striped compact highlight</mark>&gt; پشت سر هم دیگه بزارید تا اعمال شود.</p>
 
     <hr/>
     <h3>🔘 مدیریت دکمه‌ها و لینک‌ها</h3>
