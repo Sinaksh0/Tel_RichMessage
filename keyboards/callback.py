@@ -28,9 +28,13 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await send_rich_message(chat_id, MEDIA, 'editMessageText', keyboard, message_id)
 
     elif data == 'right':
+        if not context.user_data['rich_html']:
+            return
         await send_rich_message(chat_id, context.user_data['rich_html'], 'sendRichMessage', rtl=True)
 
     elif data == 'left':
+        if not context.user_data['rich_html']:
+            return
         await send_rich_message(chat_id, context.user_data['rich_html'], 'sendRichMessage', rtl=False)
 
     elif data == 'members':
@@ -41,7 +45,7 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         message += "<p><strong>📋 فهرست کاربران</strong></p>"
 
         for user in users:
-            message += f"<ol><li>{user['Name']} - {user['ID']}</li></ol>"
+            message += f"<ul><li>{user['Name']} | {user['ID']}</li></ul>"
 
         await send_rich_message(chat_id, message, 'editMessageText', keyboard, message_id, False)
 
