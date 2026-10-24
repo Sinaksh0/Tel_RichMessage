@@ -16,7 +16,7 @@ if __name__ == '__main__':
     
     app.add_handler(CommandHandler('start', start))
     app.add_handler(CommandHandler('send', send_to_user))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, message_hadler))
+    app.add_handler(MessageHandler(filters.FORWARDED | (filters.TEXT & ~filters.COMMAND), message_hadler))
     app.add_handler(CallbackQueryHandler(callback_handler))
 
     print('Bot is running...')
