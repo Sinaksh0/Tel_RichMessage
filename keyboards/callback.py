@@ -11,7 +11,12 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message_id = query.message.message_id
     chat = update.effective_chat
     person = update.effective_user
-    chat_id = chat.id
+
+    if context.user_data['chat_id']:
+        chat_id = context.user_data['chat_id']
+    else:
+        chat_id = chat.id
+
     data = query.data
 
     await query.answer()
@@ -45,7 +50,7 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         message += "<p><strong>📋 فهرست کاربران</strong></p>"
 
         for user in users:
-            message += f"<ul><li>{user['Name']} | {user['ID']}</li></ul>"
+            message += f"<ul><li>{user['Name']} | <code>{user['ID']}</code></li></ul>"
 
         await send_rich_message(chat_id, message, 'editMessageText', keyboard, message_id, False)
 
