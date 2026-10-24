@@ -120,8 +120,7 @@ async def message_hadler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         chat_id = int(message.split()[0])
     except ValueError:
-        await texts.reply_text('آیدی باید عدد صحیح باشد.')
-        return
+        pass
     
     text = ' '.join(message.split()[1:]).strip()
 
