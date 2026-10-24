@@ -97,15 +97,29 @@ async def send_to_user(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
 async def message_hadler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     texts = update.message
-    message = texts.text
 
+    if texts.forward_origin and isinstance(texts.forward_origin, MessageOriginChannel):
+        origin = texts.forward_origin
+        username = f"@{origin.chat.username}" if origin.chat.username else "ندارد (خصوصی)"
+        title = origin.chat.title or "بدون نام"
+
+        await texts.reply_text(
+            f"📢 اطلاعات پیام فورواردشده از کانال\n\n"
+            f"📌 نام کانال: {title}\n"
+            f"🆔 آیدی کانال: {origin.chat.id}\n"
+            f"🔗 یوزرنیم: {username}\n"
+            f"🔢 آیدی پیام در کانال: {origin.message_id}"
+        )
+        return
+
+    message = texts.text
     if not message:
         return
 
     try:
         chat_id = int(message.split()[0])
     except ValueError:
-        update.message.reply_text('آیدی باید عدد صحیح باشد.')
+        await texts.reply_text('آیدی باید عدد صحیح باشد.')
         return
     
     text = ' '.join(message.split()[1:]).strip()
@@ -123,21 +137,4 @@ async def message_hadler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         markup = rtl()
         await update.message.reply_text('خروجی راست چین باشد یا خیر؟\nانتخاب کنید:', reply_markup=markup)
 
-    elif texts.forward_origin:
-        origin = texts.forward_origin
-
-        if isinstance(origin, MessageOriginChannel):
-            username = f"@{origin.chat.username}" if origin.chat.username else "ندارد (خصوصی)"
-            channel_id = origin.chat.id
-            title = origin.chat.title
-            msg_id = origin.message_id
-
-            await message.reply_text(
-                f"📢 **فوروارد از کانال**\n\n"
-                f"📌 نام: {title}\n"
-                f"🆔 آیدی کانال: <code>{channel_id}</code>\n"
-                f"🔗 یوزرنیم: {username}\n"
-                f"🔢 آیدی پیام در کانال: {msg_id}",
-                parse_mode="HTML"
-            )
     return
