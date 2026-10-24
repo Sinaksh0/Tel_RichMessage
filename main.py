@@ -1,7 +1,7 @@
 from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandler, MessageHandler, filters
 from telegram import BotCommand
 from src.api import BOT_TOKEN, WEBHOOK, PORT
-from src.messages import start, message_hadler
+from src.messages import start, send_to_user, message_hadler
 from keyboards.callback import callback_handler
 
 async def post_init(application):
@@ -15,6 +15,7 @@ if __name__ == '__main__':
 
     
     app.add_handler(CommandHandler('start', start))
+    app.add_handler(CommandHandler('send', send_to_user))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, message_hadler))
     app.add_handler(CallbackQueryHandler(callback_handler))
 
