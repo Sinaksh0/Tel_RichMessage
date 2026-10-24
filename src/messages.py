@@ -13,7 +13,7 @@ def check_user(name: str, chat_id: int):
         if chat_id == id['ID']:
             flag = False
             break
-        
+
     if flag:
         users.append({
             "Name": name,
@@ -91,10 +91,10 @@ async def send_to_user(update: Update, context: ContextTypes.DEFAULT_TYPE):
         except Exception as exc:
             await update.message.reply_text(f'❌ ارسال پیام به آیدی {target} ناموفق بود.\nجزئیات: {exc}')
         return
-        
+
     else:
         await update.message.reply_text('⚠️ گیرنده رو با «all» یا یک آیدی عددی مشخص کن.\nنمونه: /manager all سلام')
-    
+
 async def message_hadler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     texts = update.message
 
@@ -120,18 +120,19 @@ async def message_hadler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         chat_id = int(message.split()[0])
     except ValueError:
-        pass
+        chat_id = None
     
-    text = ' '.join(message.split()[1:]).strip()
+    if chat_id:
+        context.user_data['chat_id'] = chat_id
+        text = ' '.join(message.split()[1:]).strip()
+    else:
+    	text = message
 
     if text.startswith('<'):
         await context.bot.set_message_reaction(chat_id=update.message.chat_id,
             message_id=update.message.message_id,
             reaction=['\U0001f44d']
         )
-
-        if chat_id:
-            context.user_data['chat_id'] = chat_id
 
         context.user_data['rich_html'] = text
         markup = rtl()
