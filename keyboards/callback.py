@@ -12,10 +12,7 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat = update.effective_chat
     person = update.effective_user
 
-    if context.user_data['chat_id']:
-        chat_id = context.user_data['chat_id']
-    else:
-        chat_id = chat.id
+    chat_id = context.user_data.get('chat_id') or chat.id
 
     data = query.data
 
