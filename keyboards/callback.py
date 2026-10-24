@@ -13,6 +13,7 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     person = update.effective_user
 
     chat_id = context.user_data.get('chat_id') or chat.id
+    context.user_data.pop("chat_id", None)
 
     data = query.data
 
