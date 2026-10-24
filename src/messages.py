@@ -106,9 +106,10 @@ async def message_hadler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await texts.reply_text(
             f"📢 اطلاعات پیام فورواردشده از کانال\n\n"
             f"📌 نام کانال: {title}\n"
-            f"🆔 آیدی کانال: {origin.chat.id}\n"
+            f"🆔 آیدی کانال: <code>{origin.chat.id}</code>\n"
             f"🔗 یوزرنیم: {username}\n"
-            f"🔢 آیدی پیام در کانال: {origin.message_id}"
+            f"🔢 آیدی پیام در کانال: {origin.message_id}",
+            parse_mode='HTML'
         )
         return
 
